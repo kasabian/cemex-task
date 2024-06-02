@@ -1,0 +1,81 @@
+<form [formGroup]="form">
+  <p-card>
+    <div
+      class="gap-3 flex flex-column lg:flex-row justify-content-between lg:align-items-end flex-wrap">
+      <div class="gap-3 lg:gap-0 flex flex-column lg:flex-row">
+        <div class="flex flex-column lg:border-right-2 border-gray-200 lg:pr-4">
+          <div class="font-bold text-xs block mb-2">Status</div>
+          <div class="inline-flex gap-3">
+            <div class="flex align-items-center">
+              <p-checkbox
+                label="Pending"
+                name="status"
+                value="Pending"
+                [formControlName]="'status'" />
+            </div>
+            <div class="flex align-items-center">
+              <p-checkbox
+                label="In Progress"
+                name="status"
+                value="In Progress"
+                [formControlName]="'status'" />
+            </div>
+            <div class="flex align-items-center">
+              <p-checkbox
+                label="Completed"
+                name="status"
+                value="Completed"
+                [formControlName]="'status'" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column lg:border-right-2 border-gray-200 lg:px-4">
+          <div class="font-bold text-xs block mb-2">Product Line</div>
+          <div class="inline-flex">
+            <p-dropdown
+              [options]="productLinesOptions"
+              [formControlName]="'productLines'"
+              optionLabel="name"
+              placeholder="Select Product Line"
+              class="input-without-borders" />
+          </div>
+        </div>
+        <div class="flex lg:px-4 gap-3">
+          <div class="inline-flex flex-column">
+            <div class="font-bold text-xs block mb-2">From</div>
+            <p-calendar
+              [iconDisplay]="'input'"
+              [showIcon]="true"
+              inputId="icondisplay"
+              class="input-without-borders w-8rem"
+              dateFormat="dd.mm.yy"
+              [maxDate]="form.get('to')?.value"
+              [formControlName]="'from'" />
+          </div>
+          <div class="inline-flex flex-column">
+            <div class="font-bold text-xs block mb-2">To</div>
+            <p-calendar
+              [iconDisplay]="'input'"
+              [showIcon]="true"
+              inputId="icondisplay"
+              class="input-without-borders w-8rem"
+              dateFormat="dd.mm.yy"
+              [minDate]="form.get('from')?.value"
+              [formControlName]="'to'" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <p-iconField iconPosition="right">
+          <p-inputIcon styleClass="pi pi-search" />
+          <input
+            type="text"
+            pInputText
+            placeholder="Search for Order Number"
+            class="w-full lg:w-18rem"
+            [formControlName]="'searchOrderNumber'" />
+        </p-iconField>
+      </div>
+    </div>
+  </p-card>
+</form>

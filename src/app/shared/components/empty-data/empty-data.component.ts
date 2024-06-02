@@ -1,0 +1,9 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-empty-data',
+  standalone: true,
+  imports: [],
+  templateUrl: './empty-data.component.html',
+})
+export class EmptyDataComponent {}

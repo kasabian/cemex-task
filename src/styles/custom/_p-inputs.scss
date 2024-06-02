@@ -1,0 +1,35 @@
+.input-without-borders {
+  &:focus-visible {
+    outline: 0 none;
+  }
+
+  .p-inputtext {
+    padding: 0px;
+  }
+
+  .p-dropdown,
+  .p-inputtext {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.p-inputtext {
+  padding: 8px;
+}
+
+.p-checkbox {
+  top: -0.1rem;
+}
+
+.p-card .p-card-content {
+  padding: 0px;
+}
+
+.p-input-icon-left > i,
+.p-input-icon-left > .p-icon-wrapper,
+.p-input-icon-right > i,
+.p-input-icon-right > .p-icon-wrapper {
+  margin-top: -0.6rem;
+  color: var(--gray-900);
+}
