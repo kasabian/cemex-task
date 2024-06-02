@@ -53,31 +53,29 @@ export class AppComponent {
   products: IProduct[] = PRODUCT_MOCK_DATA;
 
   filterData(data: IFilterData) {
-    this.filterChallengeData['status'] = [
-      {
-        filter: 'in',
-        value: data['status'],
-      },
-    ];
-    this.filterChallengeData['orderNumber'] = [
-      {
-        filter: 'contains',
-        value: data['searchOrderNumber'],
-      },
-    ];
-    this.filterChallengeData['productLine'] = [
-      {
-        filter: 'contains',
-        value: data['productLines'].key,
-      },
-    ];
-    this.filterChallengeData['dateRequested'] = [
-      { filter: 'after', value: getCorrectedTimeFrom(data['from']) },
-      { filter: 'before', value: getCorrectedTimeTo(data['to']) },
-    ];
-
-    this.filterChallengeData = Object.assign({}, this.filterChallengeData);
-
-    console.log('this.filterChallengeData', this.filterChallengeData);
+    this.filterChallengeData = {
+      status: [
+        {
+          filter: 'in',
+          value: data['status'],
+        },
+      ],
+      orderNumber: [
+        {
+          filter: 'contains',
+          value: data['searchOrderNumber'],
+        },
+      ],
+      productLine: [
+        {
+          filter: 'contains',
+          value: data['productLines'].key,
+        },
+      ],
+      dateRequested: [
+        { filter: 'after', value: getCorrectedTimeFrom(data['from']) },
+        { filter: 'before', value: getCorrectedTimeTo(data['to']) },
+      ],
+    };
   }
 }
